@@ -21,6 +21,7 @@ class DonutTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(24)),
           child: Column(children: [
             Row(
+              // alinea el precio a la derecha
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
               Container(
@@ -38,8 +39,57 @@ class DonutTile extends StatelessWidget {
                     color: donutColor[800]
                   ), //  \ caracter de escape para que no entienda que es una interpolación (backslash)
                 ),
+              ),
+
+              // donut flavor text
+
+              // icons
+            ],),
+              // donut price
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 0),
+                child: Image.asset(imageName),
+              ),
+              
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text(
+                      donutFlavor,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.black
+                      ),),
+                    Text(
+                      'Dunkin\'s',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.grey
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Icon(Icons.favorite_border_outlined),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 70),
+                    child: Text('Add',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      decoration: TextDecoration.underline
+                    ),),
+                  )
+                ],
               )
-            ],)
           ],),
       ),
     );
