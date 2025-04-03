@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ShoppingCart extends StatelessWidget {
+  final int itemCount;
+  final double totalPrice;
+
   const ShoppingCart({
     super.key,
+    required this.itemCount,
+    required this.totalPrice,
   });
 
   @override
@@ -13,27 +18,30 @@ class ShoppingCart extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 28),
+          Padding(
+            padding: const EdgeInsets.only(left: 28),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('2 Items | \$45', 
-                style: TextStyle(
-                  fontWeight: FontWeight.bold, 
-                  fontSize: 18),),
-                Text('Delivery Charges Included')
+                Text(
+                  '$itemCount Items | \$${totalPrice.toStringAsFixed(2)}', 
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                const Text('Delivery Charges Included'),
               ],
             ),
+          ),
+          ElevatedButton(
+            onPressed: () {}, // Aquí puedes conectar con la pantalla del carrito
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.pink,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
-            ElevatedButton(onPressed: (){},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pink,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24, 
-                      vertical: 12)
-                  ),
-                  child: const Text('View Cart', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)) //onPressed para conectarse a algo
+            child: const Text(
+              'View Cart', 
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     );

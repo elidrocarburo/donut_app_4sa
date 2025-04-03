@@ -7,7 +7,7 @@ import 'package:donut_app_4sa/utils/my_tab.dart';
 import 'package:donut_app_4sa/utils/shopping_cart.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget { //los datos que va cambiando el usuario y por lo mismo se van actualizando (cuando necesitamos cambios)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+class HomePage extends StatefulWidget {  
   const HomePage({super.key});
 
   @override
@@ -15,12 +15,47 @@ class HomePage extends StatefulWidget { //los datos que va cambiando el usuario 
 }
 
 class _HomePageState extends State<HomePage> {
+  int itemCount = 0;
+  double totalPrice = 0.0;
+
+  void updateCart(int count, double price) {
+    setState(() {
+      itemCount += 1;
+      totalPrice += price;
+    });
+  }
+
   List<Widget> myTabs = [
-    const MyTab(iconPath: 'lib/icons/donut.png',),
-    const MyTab(iconPath: 'lib/icons/burger.png',),
-    const MyTab(iconPath: 'lib/icons/smoothie.png',),
-    const MyTab(iconPath: 'lib/icons/pancakes.png',),
-    const MyTab(iconPath: 'lib/icons/pizza.png',)
+    Column(
+      children: [
+        const MyTab(iconPath: 'lib/icons/donut.png',),
+        const Text('Donut')
+      ],
+    ),
+    Column(
+      children: [
+        const MyTab(iconPath: 'lib/icons/burger.png',),
+        const Text('Burger')
+      ],
+    ),
+    Column(
+      children: [
+        const MyTab(iconPath: 'lib/icons/smoothie.png',),
+        const Text('Smoothie')
+      ],
+    ),
+    Column(
+      children: [
+        const MyTab(iconPath: 'lib/icons/pancakes.png',),
+        const Text('Pancakes')
+      ],
+    ),
+    Column(
+      children: [
+        const MyTab(iconPath: 'lib/icons/pizza.png',),
+        const Text('Pizza')
+      ],
+    )
   ];
 
   @override
@@ -30,57 +65,51 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          //icono de la izquierda
           leading: Icon(
             Icons.menu, 
             color: Colors.grey[800]
-            ),
-          actions: [
+          ),
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 24.0),
+              padding: EdgeInsets.only(right: 24.0),
               child: Icon(Icons.person),
             )
-            ],
+          ],
         ),
         body: Column(
           children: [
-          //1. Texto principal (Text)
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Row(
-              children: [
-                Text('I want to ', style: TextStyle(
-                  fontSize: 32
-                ),),
-                Text('Eat', style: TextStyle(
-                  //Tamaño de letra
-                  fontSize: 32,
-                  // Negritas
-                  fontWeight: FontWeight.bold,
-                  //Subrayado
-                  decoration: TextDecoration.underline,
-                ),),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
+                children: [
+                  const Text('I want to ', style: TextStyle(fontSize: 32)),
+                  Text(
+                    'Eat',
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          //2. Pestañas (TabBar)
-          TabBar(tabs: myTabs),
-          //3. Contenido de pestañas (TabBarView)
-          Expanded(
-            child: TabBarView(children: [
-              DonutTab(),
-              BurgerTab(),
-              SmoothieTab(),
-              PanCakesTab(),
-              PizzaTab()
-            ],),
-          ),
-          //4. Carrito (Cart)
-              ShoppingCart()
+            TabBar(tabs: myTabs),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  DonutTab(updateCart: updateCart),
+                  BurgerTab(updateCart: updateCart),
+                  SmoothieTab(updateCart: updateCart),
+                  PanCakesTab(updateCart: updateCart),
+                  PizzaTab(updateCart: updateCart),
+                ],
+              ),
+            ),
+            ShoppingCart(itemCount: itemCount, totalPrice: totalPrice),
           ],
-        )
+        ),
       ),
     );
   }
 }
-
