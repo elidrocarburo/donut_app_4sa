@@ -1,4 +1,4 @@
-import 'package:donut_app_4sa/utils/donut_tile.dart';
+import 'package:donut_app_4sa/utils/smoothie_tile.dart';
 import 'package:flutter/material.dart';
 
 class SmoothieTab extends StatelessWidget {
@@ -6,11 +6,15 @@ class SmoothieTab extends StatelessWidget {
 
   SmoothieTab({super.key, required this.updateCart});
 
-  final List donutsOnSale = [
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin's", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Cafe Nascita", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Pollos hermanos", "95", Colors.brown, "lib/images/chocolate_donut.png"],
+  final List smoothiesOnSale = [
+    ["Raspberry", "Smoothie Oasis", "10", Colors.red, "lib/images/raspberry_smoothie.png"],
+    ["Strawberry", "Blendtopia", "8", Colors.pink, "lib/images/strawberry_smoothie.png"],
+    ["Grape", "Fruit Fusion", "11", Colors.purple, "lib/images/grape_smoothie.png"],
+    ["Grapefruit", "Tropical Twist", "13", Colors.deepOrange, "lib/images/grapefruit_smoothie.png"],
+    ["Mango", "Happy Sips", "6", Colors.amber, "lib/images/mango_smoothie.png"],
+    ["Orange", "Fresh n' Fruity", "5", Colors.orange, "lib/images/orange_smoothie.png"],
+    ["Greens", "Smoothie Magic", "9", Colors.green, "lib/images/green_smoothie.png"],
+    ["Tuttifrutti", "Smoothie Central", "15", Colors.teal, "lib/images/tuttifrutti_smoothie.png"]
   ];
 
   int itemCount = 0;
@@ -29,16 +33,16 @@ class SmoothieTab extends StatelessWidget {
         crossAxisCount: 2, 
         childAspectRatio: 1 / 1.5,
       ),
-      itemCount: donutsOnSale.length,
+      itemCount: smoothiesOnSale.length,
       padding: const EdgeInsets.all(12),
       itemBuilder: (context, index) {
-        return DonutTile(
-          donutFlavor: donutsOnSale[index][0],
-          donutStore: donutsOnSale[index][1],
-          donutPrice: donutsOnSale[index][2],
-          donutColor: donutsOnSale[index][3],
-          imageName: donutsOnSale[index][4],
-          onAdd: () => addToCart(donutsOnSale[index][2]), // Se pasa la función correcta
+        return SmoothieTile(
+          smoothieFlavor: smoothiesOnSale[index][0],
+          smoothieStore: smoothiesOnSale[index][1],
+          smoothiePrice: smoothiesOnSale[index][2],
+          smoothieColor: smoothiesOnSale[index][3],
+          imageName: smoothiesOnSale[index][4],
+          onAdd: () => addToCart(smoothiesOnSale[index][2]), // Se pasa la función correcta
         );
       },
     );
