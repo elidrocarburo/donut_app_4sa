@@ -29,31 +29,31 @@ class _HomePageState extends State<HomePage> {
     Column(
       children: [
         const MyTab(iconPath: 'lib/icons/donut.png',),
-        const Text('Donut')
+        const Text('Donut', style: TextStyle(fontSize: 12.0),)
       ],
     ),
     Column(
       children: [
         const MyTab(iconPath: 'lib/icons/burger.png',),
-        const Text('Burger')
+        const Text('Burger', style: TextStyle(fontSize: 12.0),)
       ],
     ),
     Column(
       children: [
         const MyTab(iconPath: 'lib/icons/smoothie.png',),
-        const Text('Smoothie')
+        const Text('Smoothie', style: TextStyle(fontSize: 12.0),)
       ],
     ),
     Column(
       children: [
         const MyTab(iconPath: 'lib/icons/pancakes.png',),
-        const Text('Pancakes')
+        const Text('Pancakes', style: TextStyle(fontSize: 12.0),)
       ],
     ),
     Column(
       children: [
         const MyTab(iconPath: 'lib/icons/pizza.png',),
-        const Text('Pizza')
+        const Text('Pizza', style: TextStyle(fontSize: 12.0),)
       ],
     )
   ];

@@ -31,7 +31,7 @@ class DonutTile extends StatelessWidget {
                   color: donutColor[100],
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(24), topRight: Radius.circular(24)),
                 ),
-                padding: const EdgeInsetsDirectional.symmetric(vertical: 8,
+                padding: const EdgeInsetsDirectional.symmetric(vertical: 5,
                 horizontal: 18),
                 child: Text(
                   '\$$donutPrice',
@@ -52,7 +52,7 @@ class DonutTile extends StatelessWidget {
               ),
               
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(0.0),
                 child: Column(
                   children: [
                     Text(
@@ -77,7 +77,7 @@ class DonutTile extends StatelessWidget {
             const Spacer(), // Empuja los íconos hacia abajo
             //*Icons
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

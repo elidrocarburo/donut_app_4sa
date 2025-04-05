@@ -7,10 +7,14 @@ class DonutTab extends StatelessWidget {
   DonutTab({super.key, required this.updateCart});
 
   final List donutsOnSale = [
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin's", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Cafe Nascita", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Pollos hermanos", "95", Colors.brown, "lib/images/chocolate_donut.png"],
+    ["Ice Cream", "Yum Yums", "8", Colors.blue, "lib/images/icecream_donut.png"],
+    ["Strawberry", "Mur Mura", "5", Colors.red, "lib/images/strawberry_donut.png"],
+    ["Grape Ape", "nascita", "10", Colors.purple, "lib/images/grape_donut.png"],
+    ["Choco", "Dough Delights", "7", Colors.brown, "lib/images/chocolate_donut.png"],
+    ["Vanilla", "Milk Dipper", "5", Colors.yellow, "lib/images/vanilla_donut.png"],
+    ["Matcha", "Donut Dreamland", "12", Colors.green, "lib/images/matcha_donut.png"],
+    ["Choco Strawberry", "Donut Factory", "11", Colors.pink, "lib/images/chocostrawberry_donut.png"],
+    ["Chocomint", "Sweet Rings", "13", Colors.cyan, "lib/images/chocomint_donut.png"]
   ];
 
   int itemCount = 0;
