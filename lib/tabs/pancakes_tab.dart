@@ -1,4 +1,4 @@
-import 'package:donut_app_4sa/utils/donut_tile.dart';
+import 'package:donut_app_4sa/utils/pancakes_tile.dart';
 import 'package:flutter/material.dart';
 
 class PanCakesTab extends StatelessWidget {
@@ -6,11 +6,15 @@ class PanCakesTab extends StatelessWidget {
 
   PanCakesTab({super.key, required this.updateCart});
 
-  final List donutsOnSale = [
-    ["Ice Cream", "Krispy Kreme", "36", Colors.blue, "lib/images/icecream_donut.png"],
-    ["Strawberry", "Dunkin's", "45", Colors.red, "lib/images/strawberry_donut.png"],
-    ["Grape Ape", "Cafe Nascita", "84", Colors.purple, "lib/images/grape_donut.png"],
-    ["Choco", "Pollos hermanos", "95", Colors.brown, "lib/images/chocolate_donut.png"],
+  final List pancakesOnSale = [
+    ["Classic", "The Pancake Hub", "10", Colors.yellow, "lib/images/classic_pancakes.png"],
+    ["Whipped Cream", "Fluffy Dreams", "12", Colors.lightBlue, "lib/images/cream_pancakes.png"],
+    ["Oatmeal", "Pancake Pioneers", "16", Colors.purple, "lib/images/oatmeal_pancakes.png"],
+    ["Mama's Dinner", "Mama's Pancakes", "18", Colors.pink, "lib/images/mamas_pancakes.png"],
+    ["Berries", "Sweet Stack Studio", "15", Colors.teal, "lib/images/fruit_pancakes.png"],
+    ["Ice Cream", "Pancake Wonderland", "14", Colors.indigo, "lib/images/icecream_pancakes.png"],
+    ["Chocolate Dream", "Creative Pancake Co.", "20", Colors.brown, "lib/images/chocolatetoppings_pancakes.png"],
+    ["The Lovers", "Dreamy Layers", "15", Colors.red, "lib/images/couple_pancakes.png"]
   ];
 
   int itemCount = 0;
@@ -29,16 +33,16 @@ class PanCakesTab extends StatelessWidget {
         crossAxisCount: 2, 
         childAspectRatio: 1 / 1.5,
       ),
-      itemCount: donutsOnSale.length,
+      itemCount: pancakesOnSale.length,
       padding: const EdgeInsets.all(12),
       itemBuilder: (context, index) {
-        return DonutTile(
-          donutFlavor: donutsOnSale[index][0],
-          donutStore: donutsOnSale[index][1],
-          donutPrice: donutsOnSale[index][2],
-          donutColor: donutsOnSale[index][3],
-          imageName: donutsOnSale[index][4],
-          onAdd: () => addToCart(donutsOnSale[index][2]), // Se pasa la función correcta
+        return PancakesTile(
+          pancakesFlavor: pancakesOnSale[index][0],
+          pancakesStore: pancakesOnSale[index][1],
+          pancakesPrice: pancakesOnSale[index][2],
+          pancakesColor: pancakesOnSale[index][3],
+          imageName: pancakesOnSale[index][4],
+          onAdd: () => addToCart(pancakesOnSale[index][2]), // Se pasa la función correcta
         );
       },
     );
